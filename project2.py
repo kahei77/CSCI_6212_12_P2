@@ -43,15 +43,16 @@ def save_optimal(left, right):
 def generate_random_points(n):
     points = []
     for _ in range(n):
-        x = random.randint(0, 100)  # 生成随机x坐标，范围在0到100之间
-        y = random.randint(0, 100)  # 生成随机y坐标，范围在0到100之间
+        x = random.randint(0, 100)  # random x in [0,100]
+        y = random.randint(0, 100)  # random y in [0,100]
         points.append((x, y))
     return points
 
-n = 500  # 指定要生成的点的数量
+n = 50  # number of points
 arr = generate_random_points(n)
 start_time = time.perf_counter_ns()
 sorted_arr = merge_sort_find_optimal(arr)
 end_time = time.perf_counter_ns()
 elapsed_time_ns = end_time - start_time
-print(f"程序运行时间: {elapsed_time_ns} 纳秒")
+print(arr)
+print(f"running time: {elapsed_time_ns} ns")
