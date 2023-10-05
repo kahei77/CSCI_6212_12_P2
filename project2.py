@@ -48,11 +48,36 @@ def generate_random_points(n):
         points.append((x, y))
     return points
 
-n = 50  # number of points
+n = 10 # number of points
 arr = generate_random_points(n)
 start_time = time.perf_counter_ns()
 sorted_arr = merge_sort_find_optimal(arr)
 end_time = time.perf_counter_ns()
 elapsed_time_ns = end_time - start_time
 print(arr)
+print(sorted_arr)
 print(f"running time: {elapsed_time_ns} ns")
+
+# show stair
+import matplotlib.pyplot as plt
+
+x_arr= [item[0] for item in arr]
+y_arr= [item[1] for item in arr]
+x_sorted_arr= [item[0] for item in sorted_arr]
+y_sorted_arr= [item[1] for item in sorted_arr]
+
+plt.plot(x_sorted_arr, y_sorted_arr, marker='o', linestyle='-', color='b', label='stair')
+plt.scatter(x_arr, y_arr, marker='x', color='r', label='all points')
+
+plt.xlabel('X')
+plt.ylabel('Y')
+
+
+plt.legend()
+
+plt.grid(True)
+plt.show()
+
+
+
+
